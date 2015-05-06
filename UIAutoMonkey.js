@@ -24,10 +24,10 @@ function UIAutoMonkey() {
 		
 	this.config = {
 		//run either by minutesToRun or numberOfEvents. Only one of these can set. (To use minutes you can use config.numberOfEvents = 0)
-		minutesToRun: 60 * 1, //sample to run for 8 hours.
-		checkTimeEvery: 60, //how often to check (in events) if minutesToRun has is used. 
-		numberOfEvents: false,
-		delayBetweenEvents: 1,    // In seconds
+		//minutesToRun: 60 * 1, //sample to run for 8 hours.
+		//checkTimeEvery: 60, //how often to check (in events) if minutesToRun has is used. 
+		numberOfEvents: 1000,  //about 2.78 hours
+		delayBetweenEvents: 0.01,    // In seconds
 		/**
 		* Sometimes the monkey can fall into UI Holes from which it it is hard to escape. The monkey may then spend an inordinate
 		* amount of time in such holes, neglecting other parts of the application.
@@ -85,13 +85,13 @@ function UIAutoMonkey() {
 		eventWeights: {
 			tap: 500,
 			drag: 1,
-			flick: 1,
+			flick: 10,
 			orientation: 1,
 			//clickVolumeUp: 1,
 			//clickVolumeDown: 1,
 			lock: 1,
-			pinchClose: 10,
-			pinchOpen: 10,
+			pinchClose: 1,
+			pinchOpen: 1,
 			shake: 1
 		},
 
@@ -448,5 +448,6 @@ UIAutoMonkey.RELEASE_THE_MONKEY = function() {
 	(new UIAutoMonkey()).RELEASE_THE_MONKEY();
 };
 
-UIAutoMonkey.RELEASE_THE_MONKEY();
+//Make sure you comment out the last line of `UIAutoMonkey.js` if you include it in your project:
+//UIAutoMonkey.RELEASE_THE_MONKEY();
 
