@@ -84,15 +84,15 @@ function UIAutoMonkey() {
 		// definitions below.
 		eventWeights: {
 			tap: 500,
-			drag: 1,
+			drag: 10,
 			flick: 10,
 			orientation: 1,
-			//clickVolumeUp: 1,
-			//clickVolumeDown: 1,
+			clickVolumeUp: 1,
+			clickVolumeDown: 1,
 			lock: 1,
 			pinchClose: 1,
 			pinchOpen: 1,
-			shake: 1
+			shake: 10
 		},
 
 		// Probability that touch events will have these different properties
