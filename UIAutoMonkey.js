@@ -174,7 +174,7 @@ UIAutoMonkey.prototype.allEvents = {
 	},
 
 	clickVolumeDown: function() {
-		this.target().clickVolumeUp();
+		this.target().clickVolumeDown();
 	},
 
 	lock: function() {
