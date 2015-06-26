@@ -100,7 +100,7 @@ function UIAutoMonkey() {
 			multipleTaps: 0.05,
 			multipleTouches: 0.05,
 			longPress: 0.05
-		}
+		},
 		
 
 		// Uncomment the following to restrict events to a rectangluar area of
@@ -111,6 +111,10 @@ function UIAutoMonkey() {
 			size: {width: 100, height: 50}
 		}
 		*/
+
+		exitbtn : {
+			location: {x: 25, y: 44}
+		}
 
 	};
 }
@@ -381,8 +385,16 @@ UIAutoMonkey.prototype.randomX = function() {
 		min = 0;
 		max = this.screenWidth();
 	}
-
-	return Math.floor(Math.random() * (max - min) + min) + 1;
+	// user-defined start:
+	if (this.config.exitbtn){
+		if(Math.random() > 0.3){
+			return this.config.exitbtn.location.x;
+		} else {
+			return Math.floor(Math.random() * (max - min) + min) + 1;
+		}
+	}
+	//user-defined end
+	//return Math.floor(Math.random() * (max - min) + min) + 1;
 };
 
 UIAutoMonkey.prototype.randomY = function() {
@@ -397,8 +409,16 @@ UIAutoMonkey.prototype.randomY = function() {
 		min = 0;
 		max = this.screenHeight();
 	}
-
-	return Math.floor(Math.random() * (max - min) + min) + 1;
+	// user-defined start:
+	if (this.config.exitbtn){
+		if(Math.random() > 0.3){
+			return  this.config.exitbtn.location.y;
+		} else {
+			return Math.floor(Math.random() * (max - min) + min) + 1;
+		}
+	}
+	//user-defined end
+	//return Math.floor(Math.random() * (max - min) + min) + 1;
 };
 
 UIAutoMonkey.prototype.randomTapCount = function() {
